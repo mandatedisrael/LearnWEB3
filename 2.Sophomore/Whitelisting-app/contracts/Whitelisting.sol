@@ -13,7 +13,7 @@ contract Whitelisting {
         
     }
 
-    function  _addressToWhitelist() public {
+    function  _addAddressToWhitelist() public {
         //check if the address is already whitelisted
         require(!whitelistedAddresses[msg.sender], "You are already whitelisted");
 
