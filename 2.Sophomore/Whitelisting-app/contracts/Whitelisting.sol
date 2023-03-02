@@ -8,6 +8,7 @@ contract Whitelisting {
     mapping(address => bool) public whitelistedAddresses;
 
     uint8 public numAddressesWhitelisted;
+    
     constructor(uint8 _maxNumberOfWhitelistedAddresses) {
         maxNumberOfWhitelistedAddresses = _maxNumberOfWhitelistedAddresses;
         
