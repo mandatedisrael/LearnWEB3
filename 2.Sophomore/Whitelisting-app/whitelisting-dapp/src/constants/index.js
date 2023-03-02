@@ -1,4 +1,4 @@
-export const WHITELIST_CONTRACT_ADDRESS = "0x48CA20541553276F37c1b59DfE3c561A900Cfb92";
+export const WHITELIST_CONTRACT_ADDRESS = "0xa9193229B78646fE7D1e8FffF9Db6f5F06714856";
 export const abi = [
   {
     "inputs": [
@@ -33,7 +33,7 @@ export const abi = [
   },
   {
     "inputs": [],
-    "name": "numberOfWhitelistedAddresses",
+    "name": "numAddressesWhitelisted",
     "outputs": [
       {
         "internalType": "uint8",
@@ -63,5 +63,4 @@ export const abi = [
     "stateMutability": "view",
     "type": "function"
   }
-]
-;
+];
