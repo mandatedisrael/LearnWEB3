@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import Web3Modal from "web3modal";
 import { providers, Contract } from "ethers";
 import { useEffect, useRef, useState } from "react";
-import { WHITELIST_CONTRACT_ADDRESS, abi } from "../constants/index.js";
+import { WHITELIST_CONTRACT_ADDRESS, abi } from "../constants";
 
 export default function Home() {
   // walletConnected keep track of whether the user's wallet is connected or not
@@ -53,7 +53,7 @@ export default function Home() {
   /**
    * addAddressToWhitelist: Adds the current connected address to the whitelist
    */
-  const _addAddressToWhitelist = async () => {
+  const addAddressToWhitelist = async () => {
     try {
       // We need a Signer here since this is a 'write' transaction.
       const signer = await getProviderOrSigner(true);
@@ -64,7 +64,7 @@ export default function Home() {
         abi,
         signer
       );
-      // call the _addAddressToWhitelist from the contract
+      // call the addAddressToWhitelist from the contract
       const tx = await whitelistContract._addAddressToWhitelist();
       setLoading(true);
       // wait for the transaction to get mined
@@ -95,7 +95,7 @@ export default function Home() {
       );
       // call the numAddressesWhitelisted from the contract
       const _numberOfWhitelisted =
-        await whitelistContract.numAddressesWhitelisted;
+        await whitelistContract.numAddressesWhitelisted();
       setNumberOfWhitelisted(_numberOfWhitelisted);
     } catch (err) {
       console.error(err);
@@ -160,7 +160,7 @@ export default function Home() {
         return <button className={styles.button}>Loading...</button>;
       } else {
         return (
-          <button onClick={_addAddressToWhitelist} className={styles.button}>
+          <button onClick={addAddressToWhitelist} className={styles.button}>
             Join the Whitelist
           </button>
         );
@@ -189,7 +189,7 @@ export default function Home() {
       });
       connectWallet();
     }
-  }, [walletConnected]);
+}, [walletConnected]);
 
   return (
     <div>
@@ -205,7 +205,7 @@ export default function Home() {
             Its an NFT collection for developers in Crypto.
           </div>
           <div className={styles.description}>
-            {numberOfWhitelisted} You have already joined the Whitelist
+            {numberOfWhitelisted}  have already joined the Whitelist
           </div>
           {renderButton()}
         </div>
@@ -220,5 +220,3 @@ export default function Home() {
     </div>
   );
 }
-
-
