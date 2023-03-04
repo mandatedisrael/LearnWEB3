@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 require("dotenv").config({ path: ".env" });
-const { CRYPTO_CAVE_NFT_CONTRACT_ADDRESS } = require("../constants");
+const { CRYPTO_CAVE_NFT_CONTRACT_ADDRESS } = require("../constants.js");
 
 async function main() {
   // Address of the Crypto Cave NFT contract that you deployed in the previous module
